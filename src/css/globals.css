@@ -4,7 +4,7 @@
 
 @layer utilities {
   .layout {
-    @apply max-w-screen-2xl w-full mx-auto px-6;
+    @apply max-w-screen-2xl w-full mx-auto px-3 md:px-6;
   }
 }
 

@@ -28,7 +28,7 @@ export default function EditableField({
   return (
     <div className="flex items-end gap-1">
       {isEditing ? (
-        <>
+        <div className="w-full">
           {as === "textarea" ? (
             <textarea
               className={cn(
@@ -44,13 +44,17 @@ export default function EditableField({
           ) : (
             <input
               type="text"
-              className={cn("border-b border-black outline-none", className, {
-                "border-red-500": !!error,
-              })}
+              className={cn(
+                "border-b border-black outline-none w-full",
+                className,
+                {
+                  "border-red-500": !!error,
+                },
+              )}
               {...register(id)}
             />
           )}
-        </>
+        </div>
       ) : (
         <span className={className}>{data}</span>
       )}

@@ -23,26 +23,36 @@ export default function EditDateTime({
   const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <div className="flex items-end gap-1">
+    <div className="flex items-end flex-shrink-0 gap-1">
       {isEditing ? (
-        <div>
+        <div className="w-min sm:w-fit">
           <input
             type="date"
-            className={cn("border-b border-black outline-none", className, {
-              "border-red-500": !!error,
-            })}
+            className={cn(
+              "text-xs sm:text-sm md:text-base border-b border-black outline-none w-fit",
+              className,
+              {
+                "border-red-500": !!error,
+              },
+            )}
             {...register("apt_date")}
           />
           <input
             type="time"
-            className={cn("border-b border-black outline-none", className, {
-              "border-red-500": !!error,
-            })}
+            className={cn(
+              "text-xs sm:text-sm md:text-base border-b border-black outline-none",
+              className,
+              {
+                "border-red-500": !!error,
+              },
+            )}
             {...register("apt_time")}
           />
         </div>
       ) : (
-        <span className={cn("font-thin", className)}>
+        <span
+          className={cn("text-xs sm:text-sm md:text-base font-thin", className)}
+        >
           {data.replace("T", " ").slice(0, -8)}
         </span>
       )}
