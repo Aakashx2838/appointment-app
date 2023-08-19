@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .layout {
+    @apply max-w-screen-2xl w-full mx-auto px-6;
+  }
+}
+
+@layer components {
+  .input {
+    @apply w-full px-3 py-2 text-sm font-thin placeholder-gray-500 border border-gray-300 rounded-md shadow-sm focus:ring-1 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500;
+  }
+}
