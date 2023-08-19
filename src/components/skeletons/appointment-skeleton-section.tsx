@@ -6,7 +6,7 @@ export default function AppointmentSkeletonSection() {
       <ul className="divide-y divide-gray-200">
         {Array(5)
           .fill(0)
-          .map((i) => (
+          .map((_, i) => (
             <AppointmentCardSkeleton key={i} />
           ))}
       </ul>

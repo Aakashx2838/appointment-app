@@ -56,7 +56,14 @@ export default function EditableField({
           )}
         </div>
       ) : (
-        <span className={className}>{data}</span>
+        <span
+          className={cn(
+            "max-w-[100px] sm:max-w-full line-clamp-1 break-words",
+            className,
+          )}
+        >
+          {data}
+        </span>
       )}
       <button
         className="mb-1 text-gray-500"
