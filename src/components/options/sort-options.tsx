@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { AppointmentContext } from "../../context/appointment-context";
 
-import { BiCaretDown } from "react-icons/bi";
-
 import OptionItem from "./option-item";
+
+import { BiCaretDown } from "react-icons/bi";
 
 import { sort_options, sort_order } from "../../constants/sort-options";
 

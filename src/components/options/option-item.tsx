@@ -1,4 +1,5 @@
 import { BiCheck } from "react-icons/bi";
+
 import { SortOption } from "../../constants/sort-options";
 
 interface IOptionItemProps {

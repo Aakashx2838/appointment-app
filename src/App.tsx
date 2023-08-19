@@ -8,6 +8,7 @@ import AppointmentSection from "./components/appointment/appointment-section";
 import Header from "./components/ui/header";
 import SearchInput from "./components/ui/search-input";
 
+import AppointmentSkeletonSection from "./components/skeletons/appointment-skeleton-section";
 import { AppointmentContext } from "./context/appointment-context";
 import {
   IAppointmentQuery,
@@ -35,7 +36,7 @@ function App() {
           {appointments ? (
             <AppointmentSection appointments={appointments} />
           ) : (
-            <p>Loading...</p>
+            <AppointmentSkeletonSection />
           )}
         </AppointmentContext.Provider>
       </div>

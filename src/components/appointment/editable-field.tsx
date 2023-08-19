@@ -1,7 +1,10 @@
-import cn from "classnames";
 import { useState } from "react";
+
 import { UseFormRegister } from "react-hook-form";
+
 import { BiPencil, BiPlus } from "react-icons/bi";
+
+import cn from "classnames";
 
 interface IEditableFieldProps {
   data: string;

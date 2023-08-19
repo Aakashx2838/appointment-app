@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppointmentContext } from "../../context/appointment-context";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,6 +10,7 @@ import EditDateTime from "./edit-date-time";
 import EditableField from "./editable-field";
 
 import { BiSave } from "react-icons/bi";
+import { ImSpinner2 } from "react-icons/im";
 
 import { updateAppointment } from "../../services/update-appointment";
 
@@ -39,6 +40,8 @@ export default function AppointmentCard({
   apt_date,
   apt_notes,
 }: IAppointmentCardProps) {
+  const [isEditing, setIsEditing] = useState(false);
+
   const { setAppointments } = useContext(AppointmentContext);
 
   const {
@@ -60,6 +63,7 @@ export default function AppointmentCard({
 
   const onSubmit: SubmitHandler<UpdateAppointmentForm> = async (data) => {
     if (!isDirty) return;
+    setIsEditing(true);
     const updatedAppointment = await updateAppointment(data);
     setAppointments((prevAppointments) =>
       prevAppointments?.map((appointment) =>
@@ -68,6 +72,7 @@ export default function AppointmentCard({
           : appointment,
       ),
     );
+    setIsEditing(false);
   };
 
   return (
@@ -79,7 +84,7 @@ export default function AppointmentCard({
           className="p-1.5 mt-1 rounded text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           onClick={handleSubmit(onSubmit)}
         >
-          <BiSave />
+          {isEditing ? <ImSpinner2 className="animate-spin" /> : <BiSave />}
         </button>
       </div>
       <div className="w-full">

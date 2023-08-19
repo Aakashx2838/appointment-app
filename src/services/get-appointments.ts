@@ -52,7 +52,9 @@ export const useFetchAppointments = ({
   sortBy,
   sortOrder,
 }: IAppointmentQuery) => {
-  const [appointments, setAppointments] = useState<IAppointment[]>([]);
+  const [appointments, setAppointments] = useState<
+    IAppointment[] | undefined
+  >();
 
   useEffect(() => {
     const fetchAppointments = async () => {

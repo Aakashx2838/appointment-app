@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { AppointmentContext } from "../../context/appointment-context";
 
-import { deleteAppointment } from "../../services/delete-appointment";
-
 import { BiTrash } from "react-icons/bi";
 import { ImSpinner2 } from "react-icons/im";
+
+import { deleteAppointment } from "../../services/delete-appointment";
 
 export default function DeleteAppointmentButton({ id }: { id: number }) {
   const [isDeleting, setIsDeleting] = useState(false);
@@ -14,8 +14,8 @@ export default function DeleteAppointmentButton({ id }: { id: number }) {
   const handleDelete = async (id: number) => {
     setIsDeleting(true);
     await deleteAppointment(id);
-    setAppointments((prev) =>
-      prev.filter((appointment) => appointment.id !== id),
+    setAppointments(
+      (prev) => prev && prev.filter((appointment) => appointment.id !== id),
     );
     setIsDeleting(false);
   };

@@ -9,6 +9,7 @@ import Button from "../ui/button";
 import Input from "../ui/input";
 
 import { BiCalendarPlus } from "react-icons/bi";
+
 import { postAppointment } from "../../services/post-appointment";
 
 const addAppointmentSchema = z.object({
